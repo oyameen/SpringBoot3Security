@@ -1,2 +1,2 @@
 #   SpringBootSecurity3
-##  SpringBootSecurity with in memory user details service, and JWT.
+##  SpringBootSecurity with database user details service, and JWT.
