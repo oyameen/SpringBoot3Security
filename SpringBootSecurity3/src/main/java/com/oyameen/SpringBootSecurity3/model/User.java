@@ -35,7 +35,7 @@ public class User {
 
     private String permissions = "";
 
-    public User(String userName, String userEmail, String password, String roles, String permissions){
+    public User(String userName, String userEmail, String password, String roles, String permissions) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.password = password;
@@ -43,15 +43,16 @@ public class User {
         this.permissions = permissions;
         this.active = 1;
     }
-    public List<String> getRoleList(){
-        if(!this.roles.isEmpty()){
+
+    public List<String> getRoleList() {
+        if (!this.roles.isEmpty()) {
             return Arrays.asList(this.roles.split(","));
         }
         return new ArrayList<>();
     }
 
-    public List<String> getPermissionList(){
-        if(!this.permissions.isEmpty()){
+    public List<String> getPermissionList() {
+        if (!this.permissions.isEmpty()) {
             return Arrays.asList(this.permissions.split(","));
         }
         return new ArrayList<>();

@@ -63,7 +63,7 @@ public class SecurityConfiguration {
         UserDetails manager = User.builder()
                 .username("manager@xyz.com")
                 .password(passwordEncoder().encode("manager123"))
-                .authorities("ROLE_MANAGER","ACCESS_TEST1")
+                .authorities("ROLE_MANAGER", "ACCESS_TEST1")
                 .build();
 
         return new InMemoryUserDetailsManager(user, admin, manager);

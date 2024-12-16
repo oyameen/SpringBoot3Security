@@ -15,13 +15,12 @@ public class HomeController {
     private UserService userService;
 
     @GetMapping("")
-    public RedirectView redirectView()
-    {
+    public RedirectView redirectView() {
         return new RedirectView("/index");
     }
 
     @GetMapping("index")
-    public String index(){
+    public String index() {
         return "Welcome to home page.";
     }
 
@@ -30,6 +29,7 @@ public class HomeController {
         return userService.register(loginDto);
 
     }
+
     @PostMapping("login")
     public String login(@RequestBody LoginDto loginDto) {
         return userService.verify(loginDto);

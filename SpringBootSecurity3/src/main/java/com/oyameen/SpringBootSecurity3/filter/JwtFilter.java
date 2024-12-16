@@ -1,4 +1,4 @@
-package com.oyameen.SpringBootSecurity3.security;
+package com.oyameen.SpringBootSecurity3.filter;
 
 
 import com.oyameen.SpringBootSecurity3.service.JWTService;
@@ -25,10 +25,9 @@ import static com.oyameen.SpringBootSecurity3.constants.JwtProperties.TOKEN_PREF
 public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
-    private JWTService jwtService;
-
-    @Autowired
     ApplicationContext applicationContext;
+    @Autowired
+    private JWTService jwtService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

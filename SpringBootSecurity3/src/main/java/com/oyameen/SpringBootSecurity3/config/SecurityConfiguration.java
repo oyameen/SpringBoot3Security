@@ -1,5 +1,6 @@
-package com.oyameen.SpringBootSecurity3.security;
+package com.oyameen.SpringBootSecurity3.config;
 
+import com.oyameen.SpringBootSecurity3.filter.JwtFilter;
 import com.oyameen.SpringBootSecurity3.repository.UserRepository;
 import com.oyameen.SpringBootSecurity3.service.UserPrincipalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration{
+public class SecurityConfiguration {
 
     @Autowired
     private UserPrincipalDetailsService userPrincipalDetailsService;
@@ -38,12 +39,13 @@ public class SecurityConfiguration{
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
+
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authorize ->{
-                    authorize.requestMatchers( "/","/index").permitAll();
-                    authorize.requestMatchers(HttpMethod.POST, "/login","/register").permitAll();
+                .authorizeHttpRequests(authorize -> {
+                    authorize.requestMatchers("/", "/index").permitAll();
+                    authorize.requestMatchers(HttpMethod.POST, "/login", "/register").permitAll();
                     authorize.requestMatchers("/profile/**").authenticated();
                     authorize.requestMatchers("/admin/**", "/h2-console/**").hasRole("ADMIN");
                     authorize.requestMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER");
@@ -61,7 +63,7 @@ public class SecurityConfiguration{
     }
 
     @Bean
-    AuthenticationProvider authenticationProvider(){
+    AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
         daoAuthenticationProvider.setUserDetailsService(userPrincipalDetailsService);

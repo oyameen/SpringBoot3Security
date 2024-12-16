@@ -23,7 +23,7 @@ public class DbInit implements CommandLineRunner {
     public void run(String... args) {
         User user = new User("user", "user@xyz.com", passwordEncoder.encode("user123"), "USER", "");
         User admin = new User("admin", "admin@xyz.com", passwordEncoder.encode("admin123"), "ADMIN", "ACCESS_TEST1,ACCESS_TEST2");
-        User manager = new User("manager", "manager@xyz.com",  passwordEncoder.encode("manager123"), "MANAGER", "ACCESS_TEST1");
+        User manager = new User("manager", "manager@xyz.com", passwordEncoder.encode("manager123"), "MANAGER", "ACCESS_TEST1");
 
         List<User> users = Arrays.asList(user, admin, manager);
 

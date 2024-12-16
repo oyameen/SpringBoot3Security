@@ -1,2 +1,3 @@
-#   SpringBootSecurity2
-##  SpringBootSecurity with database user details service.
+# SpringBootSecurity2
+
+## SpringBootSecurity with database user details service.

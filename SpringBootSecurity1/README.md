@@ -1,2 +1,3 @@
-#   SpringBootSecurity1
-##  SpringBootSecurity with in memory user details service.
+# SpringBootSecurity1
+
+## SpringBootSecurity with in memory user details service.

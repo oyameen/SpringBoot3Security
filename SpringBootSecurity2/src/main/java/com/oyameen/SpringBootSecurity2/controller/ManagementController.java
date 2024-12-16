@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ManagementController {
 
     @GetMapping("index")
-    public String index(){
+    public String index() {
         return "Welcome to management page.";
     }
 }

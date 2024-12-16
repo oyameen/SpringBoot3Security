@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import static com.oyameen.SpringBootSecurity3.constants.JwtProperties.*;
+import static com.oyameen.SpringBootSecurity3.constants.JwtProperties.KEY_GENERATOR_ALGO;
 
 @Service
 public class JWTService {
@@ -36,8 +36,8 @@ public class JWTService {
                 .claims()
                 .add(claims)
                 .subject(userEmail)
-                .issuedAt(ISSUED_TIME)
-                .expiration(EXPIRATION_TIME)
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 10))
                 .and()
                 .signWith(getKey())
                 .compact();

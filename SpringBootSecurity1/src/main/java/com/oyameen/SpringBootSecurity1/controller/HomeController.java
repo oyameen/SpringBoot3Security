@@ -10,12 +10,12 @@ import org.springframework.web.servlet.view.RedirectView;
 public class HomeController {
 
     @GetMapping("")
-    public RedirectView redirectView()
-    {
+    public RedirectView redirectView() {
         return new RedirectView("/index");
     }
+
     @GetMapping("index")
-    public String index(){
+    public String index() {
         return "Welcome to home page.";
     }
 
